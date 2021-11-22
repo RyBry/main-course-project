@@ -7,7 +7,7 @@
     <!-- for the ngIf below, if the object does not exist, it is false by default -->
     <app-recipe-detail
     *ngIf="selectedRecipe; else startText"
-    [recipeToDisplay]="selectedRecipe"
+    [recipe]="selectedRecipe"
     ></app-recipe-detail>
     <ng-template #startText>
       <h1 style="padding-top: 10px;">Please select a Recipe!</h1>
