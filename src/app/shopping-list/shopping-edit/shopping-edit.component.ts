@@ -10,7 +10,7 @@ import { ShoppingListService } from '../shopping-list.service';
 export class ShoppingEditComponent implements OnInit {
   @ViewChild('nameInput') nameInputRef: ElementRef;
   @ViewChild('amountInput') amountInputRef: ElementRef;
-/* the above declares that the emitter will output and object with a string and number */
+/* the above declares that the emitter will output an object with a string and number */
   
 constructor(private shoppingListService: ShoppingListService) { }
 

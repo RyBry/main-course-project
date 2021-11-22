@@ -1,9 +1,17 @@
-import { EventEmitter } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { Ingredient } from "../shared/ingredient.model";
+import { ShoppingListService } from "../shopping-list/shopping-list.service";
 import { Recipe } from "./recipe.model";
 
+@ Injectable()
+/* Since we have a service "ShoppingListService" bieng injected into this service,
+we need to have this decorator injectable tag */
 export class RecipeService {
     recipeSelected = new EventEmitter<Recipe>();
+
+    constructor(private shoppingListService: ShoppingListService){
+
+    }
 
     private recipes: Recipe [] = [
         new Recipe('Yum Staek', 
@@ -24,6 +32,10 @@ export class RecipeService {
 
       getRecipes() {
           return this.recipes.slice();
+      }
+
+      addIngredientsToShoppingList(ingredients: Ingredient[]){
+        this.shoppingListService.addIngredients(ingredients);
       }
 
 }
